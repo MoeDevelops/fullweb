@@ -3,7 +3,7 @@ services:
     image: traefik
     container_name: traefik
     restart: unless-stopped
-    command: 
+    command:
       - "--api.insecure=true"
       - "--providers.docker=true"
       - "--providers.docker.exposedbydefault=false"
@@ -19,6 +19,7 @@ services:
     volumes:
       - ./letsencrypt:/letsencrypt
       - /var/run/docker.sock:/var/run/docker.sock
+
   web-server:
     image: nginx
     container_name: nginx
@@ -32,3 +33,11 @@ services:
       - traefik.http.routers.nginx.rule=Host(`${DOMAIN}`)
       - traefik.http.routers.nginx.entrypoints=websecure
       - traefik.http.routers.nginx.tls.certresolver=myresolver
+<<<<<<< Updated upstream
+=======
+
+  watchtower:
+    image: containrrr/watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+>>>>>>> Stashed changes
