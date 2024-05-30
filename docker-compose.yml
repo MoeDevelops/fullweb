@@ -33,11 +33,8 @@ services:
       - traefik.http.routers.nginx.rule=Host(`${DOMAIN}`)
       - traefik.http.routers.nginx.entrypoints=websecure
       - traefik.http.routers.nginx.tls.certresolver=myresolver
-<<<<<<< Updated upstream
-=======
 
   watchtower:
     image: containrrr/watchtower
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
->>>>>>> Stashed changes
